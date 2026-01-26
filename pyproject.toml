@@ -74,7 +74,7 @@ testpaths = "src/pandablocks_ioc_zmq_stream/tests"
 
 
 [tool.coverage]
-run.source = ["pandablocks-ioc-zmq-stream"]
+run.source = ["pandablocks_ioc_zmq_stream"]
 report.exclude_also = [
   '\.\.\.',
   'if typing.TYPE_CHECKING:',
@@ -91,7 +91,7 @@ disallow_untyped_defs = false
 disallow_incomplete_defs = false
 
 [[tool.mypy.overrides]]
-module = "pandablocks-ioc-zmq-stream.*"
+module = "pandablocks_ioc_zmq_stream.*"
 disallow_untyped_defs = true
 disallow_incomplete_defs = true
 
