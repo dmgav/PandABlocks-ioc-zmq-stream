@@ -70,7 +70,7 @@ filterwarnings = [
     "ignore::DeprecationWarning",
 ]
 # Doctest python code in docs, python code in src docstrings, test functions in tests
-testpaths = "src/save_and_restore_api/tests"
+testpaths = "src/pandablocks_ioc_zmq_stream/tests"
 
 
 [tool.coverage]
