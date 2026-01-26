@@ -53,7 +53,7 @@ docs = [
 ]
 
 [tool.setuptools_scm]
-write_to = "src/pandablocks-ioc-zmq-stream/_version.py"
+write_to = "src/pandablocks_ioc_zmq_stream/_version.py"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
