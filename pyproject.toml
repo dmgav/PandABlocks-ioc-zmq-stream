@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 
 [project]
-name = "PandABlocks-ioc-zmq-stream"
+name = "pandablocks-ioc-zmq-stream"
 description = "0MQ Streaming for PandABlocks IOC"
 readme = "README.md"
 license = "BSD-3-Clause"

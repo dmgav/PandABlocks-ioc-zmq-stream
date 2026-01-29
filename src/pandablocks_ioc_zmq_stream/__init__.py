@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from ._streaming import ZMQBuffer
+from ._streaming import ZMQPublisher
 from ._version import version as __version__
 
-__all__ = ["__version__", "ZMQBuffer"]
+__all__ = ["__version__", "ZMQPublisher"]
