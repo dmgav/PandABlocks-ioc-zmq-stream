@@ -1,17 +1,12 @@
 import logging
-import queue
-import threading
+import os
 from collections.abc import Iterator
-from typing import Any, Callable, Optional
 
 import h5py
 import numpy as np
 import zmq
-import os
-
 from pandablocks.hdf import Pipeline
-from pandablocks.responses import EndData, EndReason, FieldCapture, FrameData, ReadyData, StartData
-import json
+from pandablocks.responses import EndData, FieldCapture, StartData
 
 
 class _ZMQPublisher:
@@ -35,9 +30,7 @@ class _ZMQPublisher:
                 except Exception as ex:
                     logging.exception(f"Failed to open 0MQ PUB socket {address!r}: {ex}")
             else:
-                logging.error(
-                    "The address for 0MQ PUB socket is not specified. Streaming is disabled."
-                )
+                logging.error("The address for 0MQ PUB socket is not specified. Streaming is disabled.")
 
     def socket_close(self):
         if self.socket_is_active:
@@ -55,7 +48,6 @@ zmq_publisher = _ZMQPublisher()
 
 
 class ZMQPublisher(Pipeline):
-
     def __init__(
         self,
         file_names: Iterator[str],
@@ -98,7 +90,6 @@ class ZMQPublisher(Pipeline):
         dataset_info = {"name": dataset_name, "dtype": dtype}
         return dataset_info
 
-
     def stream_start(self, data: StartData):
         """
         Send 'start' message.
@@ -114,7 +105,7 @@ class ZMQPublisher(Pipeline):
         }
         self.n_emitted_frames = 0
         self.n_emitted_samples = 0
-        
+
         zmq_publisher.publish(data_emit)
         logging.info("Dataset streaming: STARTED.")
 
@@ -125,7 +116,7 @@ class ZMQPublisher(Pipeline):
         Send 'data' message for a single frame.
         Note: the function MUST pass through the 'data' without changes.
         """
-        logging.debug(f"Streaming a dataframe")
+        logging.debug("Streaming a dataframe")
 
         data_emit = {"msg_type": "data", "frame_number": self.n_emitted_frames, "datasets": {}}
         self.n_emitted_frames += 1
