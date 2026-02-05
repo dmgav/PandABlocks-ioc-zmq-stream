@@ -26,6 +26,7 @@ classifiers = [
 dynamic = ["version"]
 dependencies = [
   "pyzmq",
+  "pandablock",
 ]
 
 [project.scripts]
