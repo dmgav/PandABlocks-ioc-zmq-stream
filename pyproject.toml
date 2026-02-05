@@ -25,6 +25,7 @@ classifiers = [
 ]
 dynamic = ["version"]
 dependencies = [
+  "pyzmq",
 ]
 
 [project.scripts]
